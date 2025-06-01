@@ -16,11 +16,13 @@ This is a simple voting smart contract written in Solidity, developed as part of
 
 ## 📁 Project Structure
 
+```
 VotingSmartContract/
 ├── contracts/
 │ └── Voting.sol
 ├── README.md
 ├── LICENSE
+```
 
 ## 🧪 Testing
 
