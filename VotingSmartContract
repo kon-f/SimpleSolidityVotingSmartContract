@@ -12,7 +12,7 @@ contract Voting {
 
     Poll[] public polls;
 
-    // Δημιουργία νέας ψηφοφορίας
+    // Create new voting poll
     function createPoll(string memory _question) public {
         Poll storage newPoll = polls.push();
         newPoll.question = _question;
@@ -21,7 +21,7 @@ contract Voting {
         newPoll.isOpen = true;
     }
 
-    // Ψήφος σε ψηφοφορία
+    // Vote in created poll
     function vote(uint _pollIndex, bool _vote) public {
         require(_pollIndex < polls.length, "Poll does not exist");
         Poll storage poll = polls[_pollIndex];
@@ -36,14 +36,14 @@ contract Voting {
         }
     }
 
-    // Κλείσιμο ψηφοφορίας
+    // Close poll
     function closePoll(uint _pollIndex) public {
         require(_pollIndex < polls.length, "Poll does not exist");
         Poll storage poll = polls[_pollIndex];
         poll.isOpen = false;
     }
 
-    // Προβολή αποτελεσμάτων
+    // Display results
     function getResults(uint _pollIndex) public view returns (string memory question, uint yesVotes, uint noVotes, bool isOpen) {
         require(_pollIndex < polls.length, "Poll does not exist");
         Poll storage poll = polls[_pollIndex];
